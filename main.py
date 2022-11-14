@@ -12,7 +12,7 @@ def create_signature(method_name: str):
     dev_id = os.getenv("DEV_ID")
     auth_key = os.getenv("AUTH_KEY")
     current_datetime = datetime.utcnow()
-    formatted_datetime = current_datetime.strftime("%Y%m%d%H%M%S") # Datetime formatted as 'yyyyMMddHHmmss'
+    formatted_datetime = current_datetime.strftime("%Y%m%d%H%M%S")  # Datetime formatted as 'yyyyMMddHHmmss'
 
     string_to_hash = f"{dev_id}{method_name}{auth_key}{formatted_datetime}"
     hashed_string = hashlib.md5(string_to_hash.encode())
