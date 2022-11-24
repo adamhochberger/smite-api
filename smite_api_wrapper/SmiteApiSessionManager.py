@@ -1,9 +1,10 @@
-import os
 from datetime import datetime
+import hashlib
+import os
 
 import requests
 from dotenv import load_dotenv
-import hashlib
+from smite_api_wrapper.ApiMethods import SmiteApiMethods
 
 load_dotenv()
 
@@ -40,8 +41,7 @@ class SmiteApiSessionManager:
 
     def create_session(self):
         signature_dictionary = self.create_signature("createsession")
-        command_string = "/createsessionjson/{developerId}/{signature}/{timestamp}"
-        formatted_command = command_string.format(**signature_dictionary)
+        formatted_command = SmiteApiMethods.CREATE_SESSION.format(**signature_dictionary)
         print(formatted_command)
 
         full_url = "https://api.smitegame.com/smiteapi.svc" + formatted_command
@@ -53,8 +53,7 @@ class SmiteApiSessionManager:
     def test_session(self):
         signature_dictionary = self.create_signature("testsession")
 
-        base_string = "/testsession{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}"
-        formatted_string = base_string.format(**signature_dictionary, session=self.session_id)
+        formatted_string = SmiteApiMethods.TEST_SESSION.format(**signature_dictionary, session=self.session_id)
 
         url = "https://api.smitegame.com/smiteapi.svc" + formatted_string
         print(requests.get(url).json())
