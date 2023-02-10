@@ -1,3 +1,11 @@
+"""
+    Class used to ease calling of specific API Methods with the following notes below about different 'ID's
+    portalID:  # 1:Hi-Rez, 5:Steam, 9:PS4, 10:Xbox, 22:Switch, 25:Discord, 28:Epic
+    playerStatus: # 0:OFFLINE, 1:IN LOBBY, 2:IN SELECT, 3:IN GAME, 4:ONLINE, 5:UNKNOWN
+    languageCode: # 1:English, 2:German, 3:French, 5:Chinese, 7:Spanish, 9:Spanish (Latin American), 10:Portuguese, 11:Russian, 12:Polish, 13:Turkish
+
+"""
+
 class HirezApiMethods:
     # Connectivity, Development, And System Status
     PING = "/ping{ResponseFormat}"
@@ -6,13 +14,13 @@ class HirezApiMethods:
     GET_DATA_USED = "/getdataused{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}"
     GET_HIREZ_SERVER_STATUS = "/gethirezserverstatus{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}"
     GET_PATCH_INFO = "/getpatchinfo{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}"
-    GET_PLAYER_WITH_PORTAL = "getplayer{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{player}/{portalId}" # 1:Hi-Rez, 5:Steam, 9:PS4, 10:Xbox, 22:Switch, 25:Discord, 28:Epic
+    GET_PLAYER_WITH_PORTAL = "getplayer{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{player}/{portalId}"
     GET_PLAYER = "/getplayer{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{player}"
     GET_PLAYER_ID_BY_NAME = "/getplayeridbyname{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{playerName}"
     GET_PLAYER_ID_BY_PORTAL_USER_ID = "/getplayeridbyportaluserid{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{portalId}/{portalUserId}"
     GET_PLAYER_IDS_BY_GAMER_TAG = "/getplayeridsbygamertag{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{portalId}/{gamerTag}"
     GET_FRIENDS = "/getfriends{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{playerId}"
-    GET_PLAYER_STATUS = "/getplayerstatus{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{playerId}" # 0-OFFLINE, 1-IN LOBBY, 2-IN SELECT, 3-IN GAME, 4-ONLINE, 5-UNKNOWN
+    GET_PLAYER_STATUS = "/getplayerstatus{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{playerId}"
     GET_MATCH_HISTORY = "/getmatchhistory{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{playerId}"
     GET_QUEUE_STATS = "/getqueuestats{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{playerId}/{queue}"
     SEARCH_PLAYERS = "/searchplayers{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{searchPlayer}"
