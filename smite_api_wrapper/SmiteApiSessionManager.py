@@ -4,7 +4,7 @@ import os
 
 import requests
 from dotenv import load_dotenv
-from smite_api_wrapper.ApiMethods import SmiteApiMethods
+from smite_api_wrapper.ApiMethods import SmiteApiMethods, get_api_as_url
 
 load_dotenv()
 
@@ -41,11 +41,11 @@ class SmiteApiSessionManager:
 
     def create_session(self):
         signature_dictionary = self.create_signature("createsession")
-        formatted_command = SmiteApiMethods.CREATE_SESSION.format(**signature_dictionary)
-        print(formatted_command)
+        formatted_string = SmiteApiMethods.CREATE_SESSION.format(**signature_dictionary)
+        print(formatted_string)
 
-        full_url = "https://api.smitegame.com/smiteapi.svc" + formatted_command
-        response = requests.get(full_url)
+        url = get_api_as_url(formatted_string)
+        response = requests.get(url)
         response_dictionary = response.json()
         self.session_id = response_dictionary["session_id"]
         print(response_dictionary)
@@ -55,5 +55,5 @@ class SmiteApiSessionManager:
 
         formatted_string = SmiteApiMethods.TEST_SESSION.format(**signature_dictionary, session=self.session_id)
 
-        url = "https://api.smitegame.com/smiteapi.svc" + formatted_string
+        url = get_api_as_url(formatted_string)
         print(requests.get(url).json())
