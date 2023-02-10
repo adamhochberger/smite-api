@@ -61,3 +61,7 @@ class PaladinsApiMethods(HirezApiMethods):
     GET_PLAYER_ID_INFO_FOR_XBOX_AND_SWITCH = "/getplayeridinfoforxboxandswitch{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{playerName}"
     GET_CHAMPION_RANKS = "/getchampionranks{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/{playerId}"
     GET_PLAYER_LOADOUTS = "/getplayerloadouts{ResponseFormat}/{developerId}/{signature}/{session}/{timestamp}/playerId}/{languageCode}"
+
+
+def get_api_as_url(formatted_string):
+    return "https://api.smitegame.com/smiteapi.svc" + formatted_string
