@@ -1,3 +1,4 @@
+import json
 from datetime import datetime
 import hashlib
 import os
@@ -5,6 +6,7 @@ import os
 import requests
 from dotenv import load_dotenv
 from smite_api_wrapper.ApiMethods import SmiteApiMethods, get_api_as_url
+from smite_api_wrapper.get_method_name_from_api import get_method_name_from_api
 
 load_dotenv()
 
@@ -57,3 +59,12 @@ class SmiteApiSessionManager:
 
         url = get_api_as_url(formatted_string)
         print(requests.get(url).json())
+
+    def test_items_api(self):
+        signature_dictionary = self.create_signature(get_method_name_from_api(SmiteApiMethods.GET_ITEMS))
+        signature_dictionary["languagecode"] = "1"
+        formatted_string = SmiteApiMethods.GET_ITEMS.format(**signature_dictionary, session=self.session_id)
+
+        url = get_api_as_url(formatted_string)
+        formatted_json_string = json.dumps(requests.get(url).json(), indent=4)
+        print(formatted_json_string)

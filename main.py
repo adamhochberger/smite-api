@@ -5,3 +5,4 @@ if __name__ == '__main__':
     manager = SmiteApiSessionManager()
     manager.create_session()
     manager.test_session()
+    manager.test_items_api()
