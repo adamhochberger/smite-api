@@ -66,5 +66,18 @@ class SmiteApiSessionManager:
         formatted_string = SmiteApiMethods.GET_ITEMS.format(**signature_dictionary, session=self.session_id)
 
         url = get_api_as_url(formatted_string)
+
+        active_items_list = []
+        inactive_items_list = []
+
+        for item in requests.get(url).json():
+            if item["ActiveFlag"] == "y":
+                active_items_list.append(item["DeviceName"])
+            else:
+                inactive_items_list.append(item["DeviceName"])
+
+        # print("Active Items", active_items_list)
+        # print("Inactive Items", inactive_items_list)
+
         formatted_json_string = json.dumps(requests.get(url).json(), indent=4)
         print(formatted_json_string)
