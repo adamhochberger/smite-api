@@ -5,13 +5,13 @@ import os
 
 import requests
 from dotenv import load_dotenv
-from smite_api_wrapper.ApiMethods import SmiteApiMethods, get_api_as_url
-from smite_api_wrapper.get_method_name_from_api import get_method_name_from_api
+from smite1_api_wrapper.ApiMethods import SmiteApiMethods, get_api_as_url
+from smite1_api_wrapper.get_method_name_from_api import get_method_name_from_api
 
 load_dotenv()
 
 
-class SmiteApiSessionManager:
+class Smite1ApiSessionManager:
     def __init__(self):
         self.dev_id = None
         self.auth_key = None
