@@ -6,7 +6,7 @@ import os
 import requests
 from dotenv import load_dotenv
 from smite1_api_wrapper.ApiMethods import SmiteApiMethods, get_api_as_url
-from smite1_api_wrapper.get_method_name_from_api import get_method_name_from_api
+from functions.get_method_name_from_api import get_method_name_from_api
 
 load_dotenv()
 
