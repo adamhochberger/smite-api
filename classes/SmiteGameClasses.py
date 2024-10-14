@@ -51,12 +51,17 @@ class Consumable(ActiveItem):
         self.is_consumable = True
 
 
-class Effect():
+class EffectComponent():
     def __init__(self) -> None:
-        self.bonus = None  # Will be represented by an Object with components to parse values
-        self.description = None
+        self.effect_components = []
         
 
 class Description():
     def __init__(self) -> None:
         self.text = None
+
+
+class Effect():
+    def __init__(self) -> None:
+        self.description = None
+        self.effect = None
