@@ -4,16 +4,20 @@ class Device:
         self.cost = 0
         self.tier = 0
         self.image = None
-        self.is_active_item = True
 
         self.description = ""
         self.extended_description = ""
         self.summary = ""
 
-        self.id_number = 0
-        self.child_item_id_number = 0
+        # Bools related to filtering
+        self.is_active_item = False
+        self.is_consumable = False
+        self.is_relic = False
 
-        self.restricted_roles = {}
+        self.related_roles = {}  # Contains roles that might be suggested item
+
+        self.id_number = 0
+        self.child_id_number_list = []
 
 
 class Item(Device):
@@ -25,11 +29,34 @@ class Item(Device):
         self.stats = {}
 
 
-class Active(Device):
+class Relic(Device):
     def __init__(self):
         super().__init__()
+        self.is_active_item = False
+        self.is_relic = True
 
 
-class Consumable(Device):
+class ActiveItem(Device):
     def __init__(self):
         super().__init__()
+        self.is_active_item = False
+
+        self.active_effect = None
+        self.active_description = None
+
+
+class Consumable(Active):
+    def __init__(self):
+        super().__init__()
+        self.is_consumable = True
+
+
+class Effect():
+    def __init__(self) -> None:
+        self.bonus = None  # Will be represented by an Object with components to parse values
+        self.description = None
+        
+
+class Description():
+    def __init__(self) -> None:
+        self.text = None
