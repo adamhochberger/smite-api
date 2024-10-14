@@ -2,6 +2,8 @@ class Item:
     def __init__(self, **kwargs):
         self.name = ""
         self.cost = 0
+        self.total_cost = 0
+        
         self.tier = 0
         self.image = None
 
