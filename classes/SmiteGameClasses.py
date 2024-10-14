@@ -17,6 +17,7 @@ class Device:
         self.related_roles = {}  # Contains roles that might be suggested item
 
         self.id_number = 0
+        self.parent_id_number_list = []
         self.child_id_number_list = []
 
 
@@ -42,7 +43,6 @@ class ActiveItem(Device):
     def __init__(self):
         super().__init__()
         self.is_active_item = False
-
 
 
 class Consumable(ActiveItem):
