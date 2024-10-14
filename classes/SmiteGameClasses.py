@@ -53,7 +53,7 @@ class Consumable(ActiveItem):
 
 class EffectComponent():
     def __init__(self) -> None:
-        self.effect_components = []
+        self.effect_components = []  # This would cover anything from damage, buff, debuff, healing
         
 
 class Description():
