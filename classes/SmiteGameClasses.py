@@ -28,6 +28,8 @@ class Item(Device):
         self.is_starting_item = False
         self.stats = {}
 
+        self.effect = None
+
 
 class Relic(Device):
     def __init__(self):
@@ -41,8 +43,6 @@ class ActiveItem(Device):
         super().__init__()
         self.is_active_item = False
 
-        self.active_effect = None
-        self.active_description = None
 
 
 class Consumable(ActiveItem):
