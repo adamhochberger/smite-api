@@ -1,5 +1,5 @@
-class Device:
-    def __init__(self):
+class Item:
+    def __init__(self, **kwargs):
         self.name = ""
         self.cost = 0
         self.tier = 0
@@ -20,26 +20,20 @@ class Device:
         self.parent_id_number_list = []
         self.child_id_number_list = []
 
+        self.__dict__.update(kwargs)
 
-class Item(Device):
-    def __init__(self):
-        super().__init__()
+    def debug_print(self):
+        import pprint
+        pprint.pprint(self.__dict__)
 
-        self.is_glyph_upgrade = False
-        self.is_starting_item = False
-        self.stats = {}
-
-        self.effect = None
-
-
-class Relic(Device):
+class Relic(Item):
     def __init__(self):
         super().__init__()
         self.is_active_item = False
         self.is_relic = True
 
 
-class ActiveItem(Device):
+class ActiveItem(Item):
     def __init__(self):
         super().__init__()
         self.is_active_item = False
