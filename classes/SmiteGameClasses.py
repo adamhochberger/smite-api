@@ -45,7 +45,7 @@ class ActiveItem(Device):
         self.active_description = None
 
 
-class Consumable(Active):
+class Consumable(ActiveItem):
     def __init__(self):
         super().__init__()
         self.is_consumable = True
